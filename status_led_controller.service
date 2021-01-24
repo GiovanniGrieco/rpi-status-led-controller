@@ -1,0 +1,12 @@
+[Unit]
+Description=Control status LEDs of your Raspberry Pi
+
+[Service]
+Type=oneshot
+ExecStart=/opt/services/status_led_controller/leds_off.sh
+RemainAfterExit=true
+ExecStop=/opt/services/status_led_controller/leds_on.sh
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
