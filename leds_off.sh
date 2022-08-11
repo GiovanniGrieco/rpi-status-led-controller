@@ -6,7 +6,14 @@ if [ "$EUID" -ne "0" ]; then
 	exit 1
 fi
 
-for i in $(seq 0 1); do
-	echo "Turning off system LED $i"
-	echo 0 > /sys/class/leds/led${i}/brightness
-done
+function power_off
+{
+	echo 0 | tee /sys/class/leds/led*/brightness > /dev/null
+}
+
+power_off
+sleep 1
+power_off
+sleep 1
+power_off
+
