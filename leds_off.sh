@@ -8,7 +8,7 @@ fi
 
 function power_off
 {
-	echo 0 | tee /sys/class/leds/led*/brightness > /dev/null
+	echo 0 | tee /sys/class/leds/*/brightness > /dev/null
 }
 
 power_off
